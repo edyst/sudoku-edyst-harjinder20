@@ -158,7 +158,6 @@ function mediumSetup(){
 function hard(){
     document.getElementById('hard-btn').disabled=true;
 
-
     inputsAll.forEach(input => {
         input.value='';
         input.disabled=false;
@@ -206,9 +205,7 @@ function hardSetup(){
 }
 
 //validate call
-inputsAll.forEach(input => {
-    input.oninput=validate;
-});
+inputsAll.forEach(input => input.oninput=validate ); //attching oninput to all inputs
 function validate(e){
     const classes=e.target.classList;
     const value=e.target.value;
@@ -234,7 +231,6 @@ function validate(e){
                 alert(`Value already present in ${classes[2]}`);
             }
         });
-        // e.target.style.backgroundColor='blue';
     }
     else if(value==''){}
     else{
@@ -243,14 +239,10 @@ function validate(e){
     }
 }
 
-function validateAll(){
-    alert(`Game State is valid :)`);
-}
+function validateAll(){ alert(`Game State is valid :)`); }
 
 //highlighting call
-inputsAll.forEach(input => {
-    input.onfocus=highlight;
-});
+inputsAll.forEach(input => input.onfocus=highlight ); // attaching onfocus event to all inputs
 function highlight(e){
     const classes=e.target.classList;
     const rowElements=document.querySelectorAll('.'+CSS.escape(classes[0]));
@@ -281,9 +273,7 @@ function highlight(e){
 }
 
 //Anti-Highlighting Call
-inputsAll.forEach(input => {
-    input.onblur=antihighlight;
-});
+inputsAll.forEach( input => input.onblur=antihighlight ); //attaching onblur to all inputs
 function antihighlight(e){
     const classes=e.target.classList;
     const rowElements=document.querySelectorAll('.'+CSS.escape(classes[0]));
